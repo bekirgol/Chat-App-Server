@@ -3,7 +3,7 @@
 #### TR
 - öncelikle proje klasöründe `docker-compose up` komutu ile veritabanı çalıştırılmalıdır.
 - Daha sonra `npm install` komutu ile proje bağımlılıklarını kurulmalı ve `npm start` ile node js sunucusu çalıştırılmalıdır.
-- Proje çalıştırıldıktan sonra bir client uygulaması başlatılarak çalıştırdığımız sunucuya bağlanıyoruz.
+- Proje çalıştırıldıktan sonra bir client uygulaması başlatılarak çalıştırdığımız sunucuya bağlanıyoruz.  
   [Örnek Client Projesi](https://github.com/bekirgol/Chat-App-Client) 
 
 #### EN
