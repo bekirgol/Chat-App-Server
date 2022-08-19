@@ -12,3 +12,6 @@
 - After the project is run, we start a client application and connect to the server we are running.
 
   [Sample Client Project](https://github.com/bekirgol/Chat-App-Client)
+
+
+[Documentions](http://localhost:3000/api-docs)
