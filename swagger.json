@@ -1,0 +1,394 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Chat-App",
+    "description": "Chat-App Server Project",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/localhost:3000",
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "Operation about user"
+    },
+    {
+      "name": "Chat-Room",
+      "description": "Operations about chat room"
+    },
+    {
+      "name": "Messages",
+      "description": "Operation about messages"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/users/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "User create service",
+        "description": "",
+        "operationId": "addUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "register",
+            "description": "The user to create.",
+            "schema": {
+              "type": "object",
+              "required": [
+                "full_name",
+                "email",
+                "password"
+              ],
+              "properties": {
+                "full_name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "User login service",
+        "description": "",
+        "operationId": "loginUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "login",
+            "description": "",
+            "schema": {
+              "type": "object",
+              "required": [
+                "email",
+                "password"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/users/list-by-user-id": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "List by user service",
+        "description": "",
+        "operationId": "listByUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "login",
+            "description": "",
+            "schema": {
+              "type": "object",
+              "required": [
+                "user_id"
+              ],
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/users/list-all-user": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "List all user service",
+        "description": "",
+        "operationId": "listAllUser",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/rooms/add": {
+      "post": {
+        "tags": [
+          "Chat-Room"
+        ],
+        "summary": "Chat-Room create service",
+        "description": "",
+        "operationId": "addChatRoom",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/rooms/list-by-user-id": {
+      "post": {
+        "tags": [
+          "Chat-Room"
+        ],
+        "summary": "List by user id service for chat room",
+        "description": "",
+        "operationId": "listByUserId",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "List by user id",
+            "description": "",
+            "schema": {
+              "type": "object",
+              "required": [
+                "user_id"
+              ],
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/rooms/list-by-room-id": {
+      "post": {
+        "tags": [
+          "Chat-Room"
+        ],
+        "summary": "List by room id service for chat room",
+        "description": "",
+        "operationId": "listByRoomId",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "List by room id",
+            "description": "",
+            "schema": {
+              "type": "object",
+              "required": [
+                "room_id"
+              ],
+              "properties": {
+                "room_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/rooms/add-user": {
+      "post": {
+        "tags": [
+          "Chat-Room"
+        ],
+        "summary": "add user in room",
+        "description": "",
+        "operationId": "addUserInRoom",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "List by room id",
+            "description": "",
+            "schema": {
+              "type": "object",
+              "required": [
+                "room_id",
+                "user_id"
+              ],
+              "properties": {
+                "room_id": {
+                  "type": "string"
+                },
+                "user_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/rooms/is-room": {
+      "post": {
+        "tags": [
+          "Chat-Room"
+        ],
+        "summary": "is room service",
+        "description": "According to the room id, it checks whether there is such a room or not.",
+        "operationId": "isRoom",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Is room",
+            "description": "",
+            "schema": {
+              "type": "object",
+              "required": [
+                "user1",
+                "user2"
+              ],
+              "properties": {
+                "user1": {
+                  "type": "string"
+                },
+                "user2": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/messages/send-message": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Send message service",
+        "description": "",
+        "operationId": "sendMessage",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Send message",
+            "description": "",
+            "schema": {
+              "type": "object",
+              "required": [
+                "roomId",
+                "senderId",
+                "receiverId",
+                "message"
+              ],
+              "properties": {
+                "roomId": {
+                  "type": "string"
+                },
+                "senderId": {
+                  "type": "string"
+                },
+                "receiverId": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/messages/list-message-by-room-id": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "List message service",
+        "description": "",
+        "operationId": "listMessage",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Send message",
+            "description": "",
+            "schema": {
+              "type": "object",
+              "required": [
+                "room_id"
+              ],
+              "properties": {
+                "room_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  }
+}
